@@ -2,7 +2,7 @@ import * as z from 'zod';
 import { DEFAULT_LOG_LEVEL } from './log/log-level/defaults/default-log-level.ts';
 import { Logger } from './log/logger.ts';
 import { noLog } from './log/raw/no-log.ts';
-import { tlsProxyServer } from './tls-proxy.ts';
+import { wsToTlsProxyServer } from './ws-to-tls-proxy.ts';
 
 const logger = new Logger('MAIN', {
   logLevel: [
@@ -17,7 +17,7 @@ const ZodEnvOptions = z.object({
 });
 
 async function main(): Promise<void> {
-  await tlsProxyServer({
+  await wsToTlsProxyServer({
     logger,
     ...ZodEnvOptions.parse({
       secret: Deno.env.get('SECRET'),

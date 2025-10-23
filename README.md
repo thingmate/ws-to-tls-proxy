@@ -41,7 +41,7 @@ const ws = new WebSocket(getWebSocketProxyUrl({
 ### From Source
 
 ```shell
-git clone https://github.com/thingmate/tls-proxy
+git clone https://github.com/thingmate/ws-to-tls-proxy
 cd tls-proxy
 cp .env.example .env
 deno task generate-secret

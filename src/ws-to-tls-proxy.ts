@@ -24,18 +24,18 @@ function unknownToString(input: unknown): string {
   }
 }
 
-export interface TlsProxyServerOptions {
+export interface wsToTlsProxyServerOptions {
   readonly logger: Logger;
   readonly secret: string;
   readonly port: number;
 }
 
-export async function tlsProxyServer(
+export async function wsToTlsProxyServer(
   {
     logger,
     secret,
     port,
-  }: TlsProxyServerOptions,
+  }: wsToTlsProxyServerOptions,
 ): Promise<void> {
   logger.info('starting server on port', port, '...');
 
