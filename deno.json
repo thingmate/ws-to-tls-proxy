@@ -1,0 +1,48 @@
+{
+  "tasks": {
+    "main": "deno run --allow-env=PORT,SECRET --env-file --allow-net ./src/main.ts",
+    "main:dev": "deno run --allow-env=PORT,SECRET --env-file --allow-net --watch ./src/main.ts",
+    "check": " deno check ./src/main.ts",
+    "generate-secret": "deno run -A ./generate-secret.ts"
+  },
+  "imports": {
+    "@std/dotenv": "jsr:@std/dotenv@^0.225.5",
+    "zod": "npm:zod@^4.1.12"
+  },
+  "fmt": {
+    "singleQuote": true,
+    "lineWidth": 100,
+    "include": [
+      "src/"
+    ]
+  },
+  "compilerOptions": {
+    "module": "nodenext",
+    "lib": [
+      "ESNext",
+      "DOM",
+      "deno.ns"
+    ],
+    "types": [
+      "node"
+    ],
+    "skipLibCheck": true,
+    "experimentalDecorators": false,
+    "emitDecoratorMetadata": false,
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "noImplicitOverride": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true
+  }
+}
