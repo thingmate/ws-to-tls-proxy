@@ -16,11 +16,11 @@ Use it to connect directly to a server from the browser, like:
 
 ```ts
 export interface ConnectTLSOptions {
-  readonly port: number;
+  readonly secret: string;
   readonly hostname: string;
+  readonly port: number;
   readonly protocol?: string;
   readonly caCerts?: string[];
-  readonly secret?: string;
 }
 
 export function getWebSocketProxyUrl(options: ConnectTLSOptions): URL {
@@ -30,9 +30,9 @@ export function getWebSocketProxyUrl(options: ConnectTLSOptions): URL {
 }
 
 const ws = new WebSocket(getWebSocketProxyUrl({
+  secret: 'YOUR_SECRET',
   hostname: 'imap.gmail.com',
   port: 993,
-  secret: 'YOUR_SECRET'
 }));
 ```
 
@@ -56,7 +56,7 @@ TODO
 
 ```shell
 docker run \
-  --name=tls-proxy \
+  --name=ws-to-tls-proxy \
   --user=1000:1000 \
   --restart=always \
   --publish=80:8081 \
